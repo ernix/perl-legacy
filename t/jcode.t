@@ -38,27 +38,32 @@ our %EJ_TABLE = (
 our %JE_TABLE = reverse %EJ_TABLE;
 
 subtest SAMPLES => sub {
-    subtest convert_any_kanji_code_to_jis => sub {
-        my @words = qw( 日本語テスト ほげほげ );
+    my @words = qw( 日本語テスト ほげほげ );
 
-        for my $word (@words) {
-            for my $code (keys %EJ_TABLE) {
-                for my $jcode (values %EJ_TABLE) {
-                    subtest "${code}_to_${jcode}" => sub {
-                        local $::s = encode $code => $word;
-                        local (*f, $::icode) = &jcode'convert(*s, $jcode);
-                        is decode($JE_TABLE{$jcode}, $::s), $word;
+    for my $word (@words) {
+        for my $code (keys %EJ_TABLE) {
+            for my $jcode (values %EJ_TABLE) {
+                subtest "convert_${code}_kanji_code_to_${jcode}" => sub {
+                    local $::s = encode $code => $word;
+                    local (*f, $::icode) = &jcode'convert(*s, $jcode);
+                    is decode($JE_TABLE{$jcode}, $::s), $word;
 
-                        $::s = encode $code => $word;
-                        &f(*::s);
-                        is decode($JE_TABLE{$jcode}, $::s), $word;
+                    $::s = encode $code => $word;
+                    &f(*::s);
+                    is decode($JE_TABLE{$jcode}, $::s), $word;
 
-                        is $::icode, $EJ_TABLE{$code};
-                    };
-                }
+                    is $::icode, $EJ_TABLE{$code};
+                };
+
+                subtest the_safest_way_conversion => sub {
+                    local $::s = encode $code => $word;
+                    local ($::matched, $::icode) = &jcode'getcode(*s);
+                    ok defined $::matched;
+                    is $::icode, $EJ_TABLE{$code};
+                };
             }
         }
-    };
+    }
 };
 
 done_testing;
