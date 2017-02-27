@@ -1,2 +1,4 @@
 test:
 	prove
+install:
+	true
