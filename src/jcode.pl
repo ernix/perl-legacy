@@ -26,7 +26,7 @@ package jcode;
 ;#
 ;#	ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/
 ;#
-;; $rcsid = q$Id: jcode.pl,v 2.13 2000/09/29 16:10:05 utashiro Exp $;
+;; $rcsid = q$Id: jcode.pl,v 2.13.343556.0.001 $;
 ;#
 ;######################################################################
 ;#
