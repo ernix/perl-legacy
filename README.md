@@ -23,6 +23,10 @@ I'm sure there are better replacement modules/scripts, but who cares?
 
 # CONTENTS
 
+* cgi-lib.pl
+
+original: http://cgi-lib.berkeley.edu/
+
 * jcode.pl
 
 original: ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/jcode.pl
