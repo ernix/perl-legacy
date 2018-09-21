@@ -1,36 +1,17 @@
 # perl-legacy
 
+Good old perl libraries mainly used for Japanese CGI programs over a decade ago.
+
 [![Build Status](https://travis-ci.org/ernix/perl-legacy.svg?branch=master)](https://travis-ci.org/ernix/perl-legacy)
 
-# WHAT IS THIS?
+There still are tons of unmaintainable programs that rely on old libraries.
+Some of these are too old and can not catch up with newer versions of Perl.
 
-Good old perl scripts mainly used for Japanese CGI programs over a decade ago.
+This repository contains minimum patches for these libraries so that they can
+be used for perl v5.28
 
-# WHY?
+# ORIGINS
 
-There still are tons of code lying around using these scripts in spite of
-obsoleting some syntax by perl itself.  Thus, I'm trying to update for current
-stable perl.
-
-# ARE YOU KIDDING?
-
-Yes I am! You really shouldn't be using them.
-I'm sure there are better replacement modules/scripts, but who cares?
-
-# ぶっちゃけ
-
-半ばヤケクソ
-
-# CONTENTS
-
-* cgi-lib.pl
-
-original: http://cgi-lib.berkeley.edu/
-
-* jcode.pl
-
-original: ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/jcode.pl
-
-* mime_pls
-
-original: http://www.cc.rim.or.jp/~ikuta/mime_pls/document.html
+* [cgi-lib.pl](http://cgi-lib.berkeley.edu/)
+* [jcode.pl](ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/jcode.pl)
+* [mime_pls](http://www.cc.rim.or.jp/~ikuta/mime_pls/document.html)
