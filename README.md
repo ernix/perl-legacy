@@ -8,7 +8,7 @@ There still are tons of unmaintainable programs that rely on old libraries.
 Some of these are too old and can not catch up with newer versions of Perl.
 
 This repository contains minimum patches for these libraries so that they can
-be used for perl v5.28
+be used for the latest stable perl version.
 
 # ORIGINS
 
