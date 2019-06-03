@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Differences;
 
 use FindBin qw($RealBin);
 require_ok "$RealBin/../src/fold.pl";
@@ -21,7 +20,7 @@ subtest fold => sub {
         my $result = join "\n", @lines;
 
         my $expected = join "\n", unpack "(a$width)*", $text;
-        eq_or_diff $result, $expected, "fold_$width";
+        is $result, $expected, "fold_$width";
     }
 };
 
