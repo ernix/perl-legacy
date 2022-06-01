@@ -30,7 +30,7 @@ subtest example2 => sub {
         . ' pleasure.'
         ;
 
-    open local *ARGV, '<', \$argv or die "Can not open fake argv: $!";
+    open local(*ARGV), '<', \$argv or die "Can not open fake argv: $!";
 
     local $/ = undef;
     is &bodyencode(<>), <<'__BASE64';

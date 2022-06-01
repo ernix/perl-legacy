@@ -21,7 +21,7 @@ subtest example1 => sub {
 };
 
 subtest example2 => sub {
-    open local *ARGV, '<', \<<'__BASE64' or die "Can not open fake argv: $!";
+    open local(*ARGV), '<', \<<'__BASE64' or die "Can not open fake argv: $!";
 TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz
 IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2Yg
 dGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGlu
