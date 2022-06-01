@@ -2,7 +2,7 @@
 
 Good old perl libraries mainly used for Japanese CGI programs over a decade ago.
 
-[![Build Status](https://travis-ci.org/ernix/perl-legacy.svg?branch=master)](https://travis-ci.org/ernix/perl-legacy)
+![Build status](https://github.com/ernix/perl-legacy/actions/workflows/test.yml/badge.svg)
 
 There still are tons of unmaintainable programs that rely on old libraries.
 Some of these are too old and can not catch up with newer versions of Perl.
