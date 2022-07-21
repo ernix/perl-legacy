@@ -45,7 +45,7 @@ subtest SAMPLES => sub {
             for my $jcode (values %EJ_TABLE) {
                 subtest "convert_${code}_kanji_code_to_${jcode}" => sub {
                     local $::s = encode $code => $word;
-                    local (*f, $::icode) = &jcode'convert(*s, $jcode);
+                    local (*::f, $::icode) = &jcode'convert(*::s, $jcode);
                     is decode($JE_TABLE{$jcode}, $::s), $word;
 
                     $::s = encode $code => $word;
@@ -57,7 +57,7 @@ subtest SAMPLES => sub {
 
                 subtest the_safest_way_conversion => sub {
                     local $::s = encode $code => $word;
-                    local ($::matched, $::icode) = &jcode'getcode(*s);
+                    local ($::matched, $::icode) = &jcode'getcode(*::s);
                     ok defined $::matched;
                     is $::icode, $EJ_TABLE{$code};
                 };
