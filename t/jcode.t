@@ -1,7 +1,8 @@
 use strict;
 use warnings;
-use Test::More;
 use utf8;
+use open qw/:std :encoding(UTF-8)/;
+use Test::More;
 BEGIN {
     use_ok 'Encode';
     use_ok FindBin => qw($RealBin);
@@ -60,6 +61,45 @@ subtest SAMPLES => sub {
                     local ($::matched, $::icode) = &jcode'getcode(*::s);
                     ok defined $::matched;
                     is $::icode, $EJ_TABLE{$code};
+                };
+            }
+        }
+    }
+};
+
+subtest xxx2yyy => sub {
+    for my $from (values %EJ_TABLE) {
+        for my $to (values %EJ_TABLE) {
+            for my $option (undef, 'z', 'h') {
+                my $f = "${from}2${to}";
+                subtest sprintf("%s_%s", $f, $option // q{}) => sub {
+                    my $orig = "日本語テｽト";
+                    local $::s = encode $JE_TABLE{$from} => $orig;
+
+                    no strict 'refs';
+                    my $bytes = &{"jcode'$f"}(*::s, $option);
+
+                    my $out = decode $JE_TABLE{$to} => $::s;
+
+                    my $expect = "日本語テｽト";
+                    if ($from eq 'jis') {
+                        $expect = "日本語テスト";  # buggy
+                    }
+
+                    if ($option) {
+                        if ($option eq 'h') {
+                            $expect = "日本語ﾃｽﾄ";
+                        }
+                        else {
+                            $expect = "日本語テスト";
+                        }
+                    }
+
+                    is $out, $expect;
+
+                    # if ($bytes == 0) {
+                    #     is $orig, $out; # buggy
+                    # }
                 };
             }
         }
