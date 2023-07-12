@@ -18,4 +18,4 @@ be used for the latest stable perl version.
 * [mime_pls](http://www.cc.rim.or.jp/~ikuta/mime_pls/document.html)
 * [gifcat.pl](http://www.tohoho-web.com/soft/gcat.htm)
 * [base64.pl](mailto:barrett@ee.und.ac.za)
-* [stdio.pl](http://www-power.net/)
+* [stdio.pl](http://www-power.net/) (renamed as stdio-legacy.pl)
