@@ -3,7 +3,7 @@ package MIME;
 #
 # mimer.pl: MIME decoder library Ver.2.02 (1997/12/30)
 
-$main::mimer_version = 2.02;
+$main::mimer_version = '2.02-343556.0.001';
 
 # インストール : @INC のディレクトリ（通常は /usr/local/lib/perl）にコピー
 #                して下さい。

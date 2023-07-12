@@ -1,8 +1,8 @@
-package stdio;
+package stdio::Legacy;
 ;###############################################################
 ;#
-;# <stdio.pl> CGI STandarD Input Output - Perl Library.
-;#   Version 7.56 (Updated at October 6, 2001)
+;# <stdio-legacy.pl> CGI STandarD Input Output - Perl Library.
+;#   Version 7.56.343556.0.001
 ;#   Copyright(C)1999-2001 WEB POWER. All Rights Reserved.
 ;#   The latest programs are found at <http://www-power.net/>
 ;#
@@ -13,9 +13,21 @@ package stdio;
 ;#  - ライブラリの一切の動作保証はしません。また、運用結果につ
 ;#    いていかなる責任も負いません。
 ;#
+;#  - (patch note) With respect to author's claim, this package
+;#    was renamed from `stdio` to `stdio::Legacy`
+;#
+;#    You can still import all symbols at require time, so that
+;#    you can keep the rest of code as-is:
+;#
+;#      require 'stdio-legacy.pl';
+;#      {
+;#          no strict 'refs';
+;#          *{"stdio::$_"} = *{"stdio::Legacy::$_"} for keys %stdio::Legacy::;
+;#      }
+;#
 ;###############################################################
 
-;$ver = q$stdio.pl;7.56;October 6, 2001$;
+;$ver = q$stdio-legacy.pl;7.56.343556.0.001$;
 ;$cpy = 'Auther: Program by (C)2001 WEB POWER (http://www-power.net/)';
 ;$max = 1048576; # maximum bytes to accept via POST - 128KB(2^17=131072)
 srand(time ^ ($$ + ($$ << 15)) || time);

@@ -3,7 +3,7 @@ package MIME;
 #
 # mimew.pl: MIME encoder library Ver.2.02 (1997/12/30)
 
-$main::mimew_version = "2.02";
+$main::mimew_version = "2.02-343556.0.001";
 
 # インストール : @INC のディレクトリ（通常は /usr/local/lib/perl）にコピー
 #                して下さい。

@@ -23,7 +23,7 @@
 ;# BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES ARE
 ;# DISCLAIMED.
 ;#
-;; $rcsid = q$Id: fold.pl,v 1.6 2002/04/05 18:31:59 utashiro Exp $;
+;; $rcsid = q$Id: fold.pl,v 1.6.343556.0.001 $;
 ;#
 ;# For the latest information, consult this page:
 ;#
@@ -90,7 +90,7 @@ package fold;
 ;#
 ;#	Return value is a list of a folded line and the rest.
 ;#
-;; $rcsid = q$Id: fold.pl,v 1.6 2002/04/05 18:31:59 utashiro Exp $;
+;; $rcsid = q$Id: fold.pl,v 1.6.343556.0.001 $;
 ;#	
 sub main::fold {
     local($_, $width, $padding, $onword, $expand, $start) = @_;
