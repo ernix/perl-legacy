@@ -169,18 +169,18 @@ sub getFormData #(*IN, $tr_tags, $jcode, $h2z, $multi_keys, $file_dir)
     $val =~ tr/+/ /;
     $key =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex $1)/eg;
     $val =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex $1)/eg;
-    if ($h2z && $jcode && $jcode'version) {
+    if ($h2z && $jcode && $jcode::version) {
       if ($jcode eq 'sjis') {
-        &jcode'h2z_sjis(*val);
+        &jcode::h2z_sjis(*val);
       } elsif ($jcode eq 'jis') {
-        &jcode'h2z_jis(*val);
+        &jcode::h2z_jis(*val);
       } elsif ($jcode eq 'euc') {
-        &jcode'h2z_euc(*val);
+        &jcode::h2z_euc(*val);
       }
     }
-    if ($jcode && $jcode'version) {
-      &jcode'convert(*key, $jcode);
-      &jcode'convert(*val, $jcode);
+    if ($jcode && $jcode::version) {
+      &jcode::convert(*key, $jcode);
+      &jcode::convert(*val, $jcode);
     }
     $key =~ s/\r\n|\r/\n/g;
     $val =~ s/\r\n|\r/\n/g;
@@ -223,18 +223,18 @@ sub getMultipartFormData #(*IN, $tr_tags, $jcode, $h2z, $multi_keys, $file_dir)
       if (/^--$boundary/) {
         $val =~ s/\r\n$//;
         if ($text) {
-          if ($h2z && $jcode && $jcode'version) {
+          if ($h2z && $jcode && $jcode::version) {
             if ($jcode eq 'sjis') {
-              &jcode'h2z_sjis(*val);
+              &jcode::h2z_sjis(*val);
             } elsif ($jcode eq 'jis') {
-              &jcode'h2z_jis(*val);
+              &jcode::h2z_jis(*val);
             } elsif ($jcode eq 'euc') {
-              &jcode'h2z_euc(*val);
+              &jcode::h2z_euc(*val);
             }
           }
-          if ($jcode && $jcode'version) {
-            &jcode'convert(*key, $jcode);
-            &jcode'convert(*val, $jcode);
+          if ($jcode && $jcode::version) {
+            &jcode::convert(*key, $jcode);
+            &jcode::convert(*val, $jcode);
           }
           $key =~ s/\r\n|\r/\n/g;
           $val =~ s/\r\n|\r/\n/g;
@@ -322,7 +322,7 @@ sub sendmail #($sendmail, *header, $body, $html_mail, $mime_encode, @attachment_
   print ML "Content-Type: text/";
   print ML $html_mail ? 'html' : 'plain';
   print ML qq(; charset="ISO-2022-JP"\n\n);
-  &jcode'convert(*body, 'jis') if ($jcode'version);
+  &jcode::convert(*body, 'jis') if ($jcode::version);
   print ML $body . "\n";
   if (@attachment_files) {
     foreach $file (@attachment_files) {
@@ -401,7 +401,7 @@ sub encode #(*data)
   }
   foreach (split / +/, $data) {
     if (/[^\x20-\x7e]/) {
-      &jcode'convert(*_, 'jis') if ($jcode'version);
+      &jcode::convert(*_, 'jis') if ($jcode::version);
       &base64encode(*_);
       $data2 .= " =?ISO-2022-JP?B?$_?= ";
     } else {
@@ -510,7 +510,7 @@ sub searchString #($str, $key, $mhmode, $lc, $z2h, $k2h, $igmark)
   } else {
     $key2 = $key;
   }
-  if ($jcode'version) {
+  if ($jcode::version) {
     if ($k2h) {
       $from = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポゐゑァィゥェォャュョッ';
       $to   = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽヰヱぁぃぅぇぉゃゅょっ';
@@ -524,8 +524,8 @@ sub searchString #($str, $key, $mhmode, $lc, $z2h, $k2h, $igmark)
       $to   .= '------';
     }
     if ($from) {
-      &jcode'tr(*str, $from, $to);
-      &jcode'tr(*key, $from, $to) if (!$once);
+      &jcode::tr(*str, $from, $to);
+      &jcode::tr(*key, $from, $to) if (!$once);
       $str =~ tr/-_\///d;
       $key =~ tr/-_\///d;
     }

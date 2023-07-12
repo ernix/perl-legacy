@@ -92,7 +92,7 @@ package fold;
 ;#
 ;; $rcsid = q$Id: fold.pl,v 1.6 2002/04/05 18:31:59 utashiro Exp $;
 ;#	
-sub main'fold {
+sub main::fold {
     local($_, $width, $padding, $onword, $expand, $start) = @_;
     local($l, $room) = ('', $width);
     local($n, $c, $r, $mb);

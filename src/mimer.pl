@@ -3,7 +3,7 @@ package MIME;
 #
 # mimer.pl: MIME decoder library Ver.2.02 (1997/12/30)
 
-$main'mimer_version = 2.02;
+$main::mimer_version = 2.02;
 
 # インストール : @INC のディレクトリ（通常は /usr/local/lib/perl）にコピー
 #                して下さい。
@@ -98,7 +98,7 @@ $match_mime = '=\?[Ii][Ss][Oo]-2022-[Jj][Pp]\?[Bb]\?([A-Za-z0-9\+\/]+)=*\?=';
 $bdebuf = "";
 
 ## mimedecode interface ##
-sub main'mimedecode {
+sub main::mimedecode {
     local($_, $kout) = @_;
     1 while s/($match_mime)[ \t]*\n?[ \t]+($match_mime)/$1$3/o;
     s/$match_mime/&kconv(&base64decode($1))/geo;
@@ -110,7 +110,7 @@ sub main'mimedecode {
 }
 
 ## bodydecode interface ##
-sub main'bodydecode {
+sub main::bodydecode {
     local($_, $coding) = @_;
     if (!defined($coding) || $coding eq "" || $coding eq "b64"){
 	s/[^A-Za-z0-9\+\/\=]//g;
@@ -125,7 +125,7 @@ sub main'bodydecode {
 }
 
 ## &bdeflush interface ##
-sub main'bdeflush {
+sub main::bdeflush {
     local($coding) = @_;
     local($ret) = "";
     if ((!defined($coding) || $coding eq "" || $coding eq "b64")

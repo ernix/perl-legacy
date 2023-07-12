@@ -34,23 +34,23 @@ __UUENCODE
 
 subtest Synopsis => sub {
     subtest 'b64encode => b64touu => uuedecode' => sub {
-        my $base64_string = &base64'b64encode($binary_string);
+        my $base64_string = &base64::b64encode($binary_string);
         is $base64_string, $base64;
 
-        my $uuencode_string = &base64'b64touu($base64_string);
+        my $uuencode_string = &base64::b64touu($base64_string);
         is $uuencode_string, $uuencode;
 
-        is &base64'uudecode($uuencode_string), $binary_string;
+        is &base64::uudecode($uuencode_string), $binary_string;
     };
 
     subtest 'uuencode => uutob64 => b64decode' => sub {
-        my $uuencode_string = &base64'uuencode($binary_string);
+        my $uuencode_string = &base64::uuencode($binary_string);
         is $uuencode_string, $uuencode;
 
-        my $base64_string = &base64'uutob64($uuencode_string);
+        my $base64_string = &base64::uutob64($uuencode_string);
         is $base64_string, $base64;
 
-        is &base64'b64decode($base64_string), $binary_string;
+        is &base64::b64decode($base64_string), $binary_string;
     };
 };
 

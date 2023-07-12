@@ -3,7 +3,7 @@ package MIME;
 #
 # mimew.pl: MIME encoder library Ver.2.02 (1997/12/30)
 
-$main'mimew_version = "2.02";
+$main::mimew_version = "2.02";
 
 # インストール : @INC のディレクトリ（通常は /usr/local/lib/perl）にコピー
 #                して下さい。
@@ -135,7 +135,7 @@ $benbuf = "";
 $bensize = int($foldcol/4)*3;
 
 ## &mimeencode interface ##
-sub main'mimeencode {
+sub main::mimeencode {
     local($_) = @_;
     s/$match_jis/$jis_in$1/go;
     s/$match_ascii/$jis_out$1/go;
@@ -150,7 +150,7 @@ sub main'mimeencode {
 }
 
 ## &bodyencode interface ##
-sub main'bodyencode {
+sub main::bodyencode {
     local($_,$coding) = @_;
     if (!defined($coding) || $coding eq "" || $coding eq "b64"){
 	$_ = $benbuf . $_;
@@ -182,7 +182,7 @@ sub main'bodyencode {
 }
 
 ## &benflush interface ##
-sub main'benflush {
+sub main::benflush {
     local($coding) = @_;
     local($ret) = "";
     if ((!defined($coding) || $coding eq "" || $coding eq "b64")
