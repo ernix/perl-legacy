@@ -1,14 +1,14 @@
 # perl-legacy
 
-Good old perl libraries mainly used for Japanese CGI programs over a decade ago.
+Good old Perl libraries mainly used in Japanese CGI applications since several decades ago.
 
 ![Build status](https://github.com/ernix/perl-legacy/actions/workflows/test.yml/badge.svg)
 
-There still are tons of unmaintainable programs that rely on old libraries.
-Some of these are too old and can not catch up with newer versions of Perl.
+There still are tons of abandoned but live applications depends on these libraries.
+Some of them are hopelessly unmaintainable and cannot even catch up with newer versions of Perl.
 
-This repository contains minimum patches for these libraries so that they can
-be used for the latest stable perl version.
+This repository contains minimum patches of those libraries so that they can
+be used with the latest stable Perl version.
 
 # ORIGINS
 
